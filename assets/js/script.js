@@ -15,6 +15,7 @@ let storyList = [];
 let chathams_blue = "#1A4B84";
 
 // Elements
+const Title = document.getElementById("Title");
 const description = document.getElementById("description");
 const assignedto = document.getElementById("assignedto");
 const priority = document.getElementById("priority");
@@ -27,10 +28,12 @@ const warnLength = 90;
 // Event Listeners
 ["keyup", "change", "keydown", "focus"].forEach(function (e) {
   description.addEventListener(e, textCounter);
+  Title.addEventListener(e,textCounter);
 });
 
 ["cut", "copy", "paste"].forEach(function (e) {
   description.addEventListener(e, ccp);
+  Title.addEventListener(e, ccp);
 });
 
 // prevent cut copy paste
@@ -83,6 +86,7 @@ const updateList = (newStory, updatedList) => {
             ${issue.storyStatus === "open" ? "open" : "closed"}</span>
             </div>
             <div class="card-body">
+            <h5 class="card-Title">${issue.Title}</h5>
             <p class="text-start pb-1">Assigned to : ${
               assignedToList[issue.assignedTo]
             }</p>
@@ -126,6 +130,11 @@ initApp();
 // form validation
 const formValidate = (e) => {
   e.preventDefault();
+  if(Title.value===""){
+    alert("please enter the Title");
+    Title.focus();
+    return;
+  }
   if (description.value === "") {
     alert("Please enter description");
     description.focus();
@@ -146,13 +155,16 @@ const formValidate = (e) => {
     priority.focus();
     return;
   }
+
   const newStory = {
     id: "id" + Math.random().toString(16).slice(2), //generate id
+    Title: Title.value,
     description: description.value,
     assignedTo: assignedto.value,
     priority: priority.value,
     storyStatus: "open",
   };
+  Title.value="";
   description.value = "";
   assignedto.value = "";
   priority.value = "";
@@ -187,3 +199,7 @@ function setTheme(theme) {
   localStorage.setItem("movie-theme", theme);
 }
 setTheme(localStorage.getItem("movie-theme") || chathams_blue);
+
+
+
+
