@@ -53,6 +53,34 @@
     <main role="main" class="container pt-5 pb-5">
       <section>
         <h2 class="display-6 pb-2">Create Agile Story</h2>
+        <div class="mb-3">
+          <label for="priority" class="form-label">Priority</label>
+          <select class="form-select" id="priority" required>
+            <option value="" disabled="disabled" selected>
+              select priority
+            </option>
+            <option value="0">Low</option>
+            <option value="1">Medium</option>
+            <option value="2">High</option>
+          </select>
+        </div>
+        <div>
+          <label for="Title"> Title:</label><br>
+          <input type="text" id="Title" name="Title" style="width: 1200px;"><br><br>
+      </div>
+      <div class="mb-3">
+        <label for="assignedto" class="form-label">Assigned To</label>
+        <select class="form-select" id="assignedto" required>
+          <option value="" disabled="disabled" selected>
+            select assigned to
+          </option>
+          <option value="0">Edwin</option>
+          <option value="1">Tom</option>
+          <option value="2">Carl</option>
+          <option value="3">Jerome</option>
+          <option value="4">Carmelo</option>
+        </select>
+      </div>
         <form id="login-form">
           <div class="mb-3">
             <label for="description" class="form-label">Task Description</label>
@@ -65,35 +93,6 @@
             ></textarea>
             <div id="descLength" class="form-text"></div>
           </div>
-          <div class="mb-3">
-            <label for="assignedto" class="form-label">Assigned To</label>
-            <select class="form-select" id="assignedto" required>
-              <option value="" disabled="disabled" selected>
-                select assigned to
-              </option>
-              <option value="0">Edwin</option>
-              <option value="1">Tom</option>
-              <option value="2">Carl</option>
-              <option value="3">Jerome</option>
-              <option value="4">Carmelo</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="priority" class="form-label">Priority</label>
-            <select class="form-select" id="priority" required>
-              <option value="" disabled="disabled" selected>
-                select priority
-              </option>
-              <option value="0">Low</option>
-              <option value="1">Medium</option>
-              <option value="2">High</option>
-            </select>
-          </div>
-          <div>
-            <label for="Title"> Title:</label><br>
-            <input type="text" id="Title" name="Title" style="width: 1200px;"><br><br>
-        </div>
-
           <button type="submit" class="btn btn-primary" id="storySubmitBtn">
             Create Agile Story
           </button>
